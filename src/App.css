@@ -10,21 +10,7 @@
 }
 
 
-.header {
-grid-area: a;
-  background-color: #1178a1 ;
-}
-.header img {
-  width: 40px;
-}
 
-.nav {
-  grid-area: b;
-  background-color: #0cd9ed;
-}
 
-.content{
-  grid-area: c;
-  background-color: #78e6fc ;
 
-}
+
