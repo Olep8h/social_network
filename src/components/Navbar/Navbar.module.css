@@ -9,7 +9,7 @@
     color: white;
     text-decoration: none;
 }
-.item a.active {
+.item a.activeLink {
     color: black;
 }
 
