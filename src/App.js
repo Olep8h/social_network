@@ -8,7 +8,6 @@ import { Routes, Route } from "react-router-dom";
 
 const App = (props) => {
   return (
-
       <div className='app-wrapper'>
       <Header/>
       <Navbar/>
@@ -16,8 +15,6 @@ const App = (props) => {
           <Routes>
           <Route path='/dialogs' element={<Dialogs />}/>
           <Route path='/profile' element={<Profile />}/>
-          <Route path='/header' element={<Header />}/>
-          <Route path='/navbar' element={<Navbar />}/>
       </Routes>
       </div>
   </div>
