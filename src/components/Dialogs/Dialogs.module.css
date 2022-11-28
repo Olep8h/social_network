@@ -4,7 +4,8 @@
 }
 
 .dialogsItems .dialog {
-    padding: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
      ;
 
 }
@@ -14,10 +15,10 @@
 }
 
 .messages {
-    padding: 10px;
+
 
 }
 
 .messages .message {
-    padding: 10px;
+    padding-top: 10px;
 }
