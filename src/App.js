@@ -8,7 +8,6 @@ import {Routes, Route} from "react-router-dom";
 
 const App = (props) => {
 
-
     return (
         <div className='app-wrapper'>
             <Header/>
@@ -16,8 +15,9 @@ const App = (props) => {
             <div className='app-wrapper-content'>
                 <Routes>
                     <Route path='/dialogs'
-                           element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>}/>
-                    <Route path='/profile' element={<Profile postsData={props.postsData}/>}/>
+                           element={<Dialogs state={props.state.dialogsPage}/>}/>
+                    <Route path='/profile'
+                           element={<Profile state={props.state.profilePage}/>}/>
                 </Routes>
             </div>
         </div>
