@@ -4,22 +4,25 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
-import { Routes, Route } from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 
 const App = (props) => {
-  return (
-      <div className='app-wrapper'>
-      <Header/>
-      <Navbar/>
-      <div className='app-wrapper-content'>
-          <Routes>
-          <Route path='/dialogs' element={<Dialogs />}/>
-          <Route path='/profile' element={<Profile />}/>
-      </Routes>
-      </div>
-  </div>
 
-  )
+
+    return (
+        <div className='app-wrapper'>
+            <Header/>
+            <Navbar/>
+            <div className='app-wrapper-content'>
+                <Routes>
+                    <Route path='/dialogs'
+                           element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>}/>
+                    <Route path='/profile' element={<Profile postsData={props.postsData}/>}/>
+                </Routes>
+            </div>
+        </div>
+
+    )
 }
 
 export default App;
