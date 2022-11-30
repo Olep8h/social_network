@@ -3,17 +3,6 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.dialogsItems .dialog {
-    padding-left: 10px;
-    padding-top: 10px;
-     ;
-
-}
-
-.dialogsItems .act {
-    color: darkblue;
-}
-
 .messages {
 
 
