@@ -1,3 +1,18 @@
 .message {
     padding: 10px;
 }
+
+.addMessageButton{
+    padding: 1px;
+    background-color: #1178a1;
+    color: #d0e3f1;
+}
+
+.textMessage{
+    padding: 5px;
+    width: 150px;
+    height: 25px;
+    background-color: antiquewhite;
+
+
+}
