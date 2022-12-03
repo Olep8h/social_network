@@ -8,6 +8,7 @@ let state = {
             {id: 3, message: 'I want to create my own social network!!', likesCount: 22},
             {id: 4, message: 'I want pineapple pizza', likesCount: 25}
         ],
+        newPostText: 'inMoment.com'
     },
 
     dialogsPage: {
@@ -28,13 +29,22 @@ let state = {
     }
 }
 
-export let addPost = (postMessage) => {
+window.state = state
+
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0,
     };
     state.profilePage.postsData.push(newPost);
+    state.profilePage.newPostText = '';
+    renderEntireTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+
+    state.profilePage. newPostText = newText;
     renderEntireTree(state);
 }
 
