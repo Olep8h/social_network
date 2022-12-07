@@ -15,3 +15,15 @@
 .dialogsItems {
 
 }
+.text_message {
+    padding: 5px;
+    width: 150px;
+    height: 25px;
+    background-color: antiquewhite;
+}
+
+.button_sendMessage {
+    padding: 1px;
+    background-color: #1178a1;
+    color: #d0e3f1;
+}
