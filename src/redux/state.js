@@ -1,6 +1,10 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const SEND_MESSAGE = 'SEND_MESSAGE';
+
+
 let store = {
     _state: {
         profilePage: {
@@ -14,13 +18,6 @@ let store = {
         },
 
         dialogsPage: {
-            messagesData: [
-                {id: 1, message: 'Hello'},
-                {id: 2, message: 'So you can?'},
-                {id: 3, message: 'Actually no..'},
-                {id: 4, message: 'Don`t do this'},
-                {id: 5, message: 'Of course!'}
-            ],
             dialogsData: [
                 {id: 1, name: 'Oleh'},
                 {id: 2, name: 'Alex'},
@@ -28,6 +25,14 @@ let store = {
                 {id: 4, name: 'Maks'},
                 {id: 5, name: 'Lisa'}
             ],
+            messagesData: [
+                {id: 1, message: 'Hello'},
+                {id: 2, message: 'So you can?'},
+                {id: 3, message: 'Actually no..'},
+                {id: 4, message: 'Don`t do this'},
+                {id: 5, message: 'Of course!'}
+            ],
+            newMessageBody: "",
         }
     },
     _callSubscriber() {
@@ -55,7 +60,7 @@ let store = {
     },
     dispatch(action) {
         if (action.type === ADD_POST) {
-          //this._addPost()
+            //this._addPost()
             let newPost = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -68,17 +73,26 @@ let store = {
             //this._updateNewPostText(action.newText)
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this._state.dialogsPage.newMessageBody = action.body;
+            this._callSubscriber(this._state)
+        } else if (action.type === SEND_MESSAGE) {
+            let body = this._state.dialogsPage.newMessageBody;
+            this._state.dialogsPage.newMessageBody = '';
+            this._state.dialogsPage.messagesData.push({id: 6, message: body});
+            this._callSubscriber(this._state)
         }
     }
 }
 
 export const addPostActionCreator = () => ({type: ADD_POST})
-
 export const onPostChangeActionCreator = (text) => (
     {type: UPDATE_NEW_POST_TEXT, newText: text})
 
+export const sendMessageCreator = () => ({type: SEND_MESSAGE})
+export const updateNewMessageBodyCreator = (body) => (
+    {type: UPDATE_NEW_MESSAGE_BODY, body: body})
 
-
-window.state = store
 
 export default store;
+window.state = store
