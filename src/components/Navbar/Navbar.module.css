@@ -5,12 +5,11 @@
     padding: 15px;
 }
 
-.item a {
+.non-active-class {
     color: white;
-    text-decoration: none;
-}
-.isActive {
-    color: black;
 }
 
+.active-class {
+    color: #154360;
 
+}

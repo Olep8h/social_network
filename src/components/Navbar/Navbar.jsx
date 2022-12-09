@@ -5,25 +5,30 @@ import {NavLink} from "react-router-dom";
 const Navbar = () => {
     return (
         <nav className={classes.nav}>
-            <div className={classes.item}>
+            <div>
                 <NavLink to="/profile"
-                         className={({isActive}) => isActive ? "active-class" : "non-active-class"}>Profile</NavLink>
+                         style={{textDecoration: 'none'}}
+                         className={({isActive}) => isActive ? classes['active-class'] : classes['non-active-class']}>Profile</NavLink>
             </div>
-            <div className={classes.item}>
+            <div>
                 <NavLink to="/dialogs"
-                         className={({isActive}) => isActive ? "active-class" : "non-active-class"}>Messages</NavLink>
+                         style={{textDecoration: 'none'}}
+                         className={({isActive}) => isActive ? classes['active-class'] : classes['non-active-class']}>Messages</NavLink>
             </div>
-            <div className={classes.item}>
+            <div>
                 <NavLink to="news"
-                         className={({isActive}) => isActive ? "active-class" : "non-active-class"}>News</NavLink>
+                         style={{textDecoration: 'none'}}
+                         className={({isActive}) => isActive ? classes['active-class'] : classes['non-active-class']}>News</NavLink>
             </div>
-            <div className={classes.item}>
+            <div>
                 <NavLink to="music"
-                         className={({isActive}) => isActive ? "active-class" : "non-active-class"}>Music</NavLink>
+                         style={{textDecoration: 'none'}}
+                         className={({isActive}) => isActive ? classes['active-class'] : classes['non-active-class']}>Music</NavLink>
             </div>
-            <div className={classes.item}>
+            <div>
                 <NavLink to="settings"
-                         className={({isActive}) => isActive ? "active-class" : "non-active-class"}>Settings</NavLink>
+                         style={{textDecoration: 'none'}}
+                         className={({isActive}) => isActive ? classes['active-class'] : classes['non-active-class']}>Settings</NavLink>
             </div>
         </nav>
     )
