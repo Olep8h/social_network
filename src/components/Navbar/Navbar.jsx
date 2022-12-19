@@ -26,6 +26,11 @@ const Navbar = () => {
                          className={({isActive}) => isActive ? classes['active-class'] : classes['non-active-class']}>Music</NavLink>
             </div>
             <div>
+                <NavLink to="users"
+                         style={{textDecoration: 'none'}}
+                         className={({isActive}) => isActive ? classes['active-class'] : classes['non-active-class']}>Find users</NavLink>
+            </div>
+            <div>
                 <NavLink to="settings"
                          style={{textDecoration: 'none'}}
                          className={({isActive}) => isActive ? classes['active-class'] : classes['non-active-class']}>Settings</NavLink>
