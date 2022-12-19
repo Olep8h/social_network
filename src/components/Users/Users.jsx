@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Users.module.css";
 
 let Users = (props) => {
 
@@ -6,10 +7,10 @@ let Users = (props) => {
         {
             props.users?.map(u => <div key={u.id}>
                 <span>
-                    <div>
-                        <img src={u.photo}/>
+                    <div >
+                        <img src={u.photo} className={styles.photo}/>
                     </div>
-                    <div>
+                    <div className={styles.button_follow}>
                         {u.followed ? <button onClick={() => {
                             props.unfollow(u.id)
                         }}>Unfollow</button> : <button onClick={() => {
@@ -19,11 +20,11 @@ let Users = (props) => {
                 </span>
                 <span>
                     <span>
-                        <div>{u.FullName}</div>
-                        <div>{u.description}</div>
+                        <div className={styles.fullName}>{u.FullName}</div>
+                        <div className={styles.description}>{u.description}</div>
                     </span>
                     <span>
-                        <div>{u.location}</div>
+                        <div className={styles.location}>{u.location}</div>
                     </span>
                 </span>
             </div>)
