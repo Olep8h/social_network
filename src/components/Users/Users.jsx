@@ -29,11 +29,11 @@ let Users = (props) => {
                 </span>
                 <span>
                     <span>
-                        <div className={styles.fullName}>{u.FullName}</div>
-                        <div className={styles.description}>{u.description}</div>
+                        <div className={styles.fullName}>{u.name}</div>
+                        <div className={styles.description}>{u.status}</div>
                     </span>
                     <span>
-                        <div className={styles.location}>{u.location}</div>
+                        <div className={styles.location}>{"u.location"}</div>
                     </span>
                 </span>
             </div>)
