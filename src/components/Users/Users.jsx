@@ -1,6 +1,7 @@
 import React from "react";
-import styles from "./Users.module.css";
 import axios from "axios";
+import userIcon from "../../assets/images/user-image.png";
+import styles from "./Users.module.css";
 
 let Users = (props) => {
     if (props.users.length === 0) {
@@ -16,7 +17,7 @@ let Users = (props) => {
             props.users?.map(u => <div key={u.id}>
                 <span>
                     <div >
-                        <img src={u.photo} className={styles.photo}/>
+                        <img src={u.photos.small != null ? u.photos.small : userIcon } className={styles.photo}/>
                     </div>
                     <div className={styles.button_follow}>
                         {u.followed ? <button onClick={() => {
