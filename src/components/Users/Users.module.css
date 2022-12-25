@@ -1,3 +1,16 @@
+.button_get_U {
+    background-color: #1F618D;
+    border: none;
+    color: white;
+    padding: 8px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
 .photo {
     width: 150px;
     height: 150px;
