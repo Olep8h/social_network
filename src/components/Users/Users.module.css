@@ -19,10 +19,28 @@
     padding: 15px;
 }
 
-.button_follow {
-    padding: 10px;
+.unFollowButton {
+    background-color: #707B7C ;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
-
+.followButton {
+    background-color: #34495E ;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 .fullName {
     font-size: 20px;
     font-weight: bold;
