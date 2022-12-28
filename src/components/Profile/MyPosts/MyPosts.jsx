@@ -24,7 +24,8 @@ const MyPosts = (props) => {
             <h2 className={classes.titleMyPhotos}>My photos</h2>
             <div>
                 <div>
-                    <textarea onChange={onPostChange}
+                    <textarea className={classes.textarea}
+                              onChange={onPostChange}
                               ref={newPostElement}
                               value={props.newPostText}/>
                 </div>
