@@ -7,7 +7,26 @@
 }
 
 .addPostButton {
-    padding-top: 8px;
+    background-color: #1F618D;
+    color: white;
+    padding: 6px 11px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+.textarea{
+    width: 220px;
+    height: 80px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: antiquewhite;
+    resize: none;
 }
 
 .titleMyPhotos {
