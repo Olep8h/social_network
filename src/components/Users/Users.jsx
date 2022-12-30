@@ -5,15 +5,35 @@ import styles from "./Users.module.css";
 
 class Users extends React.Component {
     componentDidMount() {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+        axios.get("https://social-network.samuraijs.com/api/1.0/users?count=" + this.props.pageSize + "&page=" + this.props.currentPage)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+                this.props.setTotalUsersCount(response.data.totalCount);
+            });
+    }
+
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber);
+        axios.get("https://social-network.samuraijs.com/api/1.0/users?count=" + this.props.pageSize + "&page=" + pageNumber)
             .then(response => {
                 this.props.setUsers(response.data.items);
             });
     }
 
     render() {
+
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+
         return (
             <div>
+                <div className={styles.pagination}>
+                    {Array(pagesCount).fill(1).map((el, index) => {
+                        return <span className={this.props.currentPage === index + 1 ? styles.selectedPage : ""}
+                                     onClick={(event) => {
+                                         this.onPageChanged(index + 1)
+                                     }}>{index + 1}</span>
+                    })}
+                </div>
                 {this.props.users.map(u => <div key={u.id}>
                     <span>
                         <div>
