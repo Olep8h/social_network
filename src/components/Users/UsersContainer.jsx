@@ -15,10 +15,10 @@ import styles from "./Users.module.css";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.isLoading(true);
+        this.props.toggleIsLoading(true);
         axios.get("https://social-network.samuraijs.com/api/1.0/users?count=" + this.props.pageSize + "&page=" + this.props.currentPage)
             .then(response => {
-                this.props.isLoading(false);
+                this.props.toggleIsLoading(false);
                 this.props.setUsers(response.data.items);
                 this.props.setTotalUsersCount(response.data.totalCount);
             });
@@ -26,10 +26,10 @@ class UsersContainer extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-        this.props.isLoading(true);
+        this.props.toggleIsLoading(true);
         axios.get("https://social-network.samuraijs.com/api/1.0/users?count=" + this.props.pageSize + "&page=" + pageNumber)
             .then(response => {
-                this.props.isLoading(false);
+                this.props.toggleIsLoading(false);
                 this.props.setUsers(response.data.items);
             });
     }
@@ -78,7 +78,7 @@ let mapDispatchToProps = (dispatch) => {
         setTotalUsersCount: (totalCount) => {
             dispatch(setTotalUsersCountAC(totalCount))
         },
-        isLoading: (isLoading) => {
+        toggleIsLoading: (isLoading) => {
             dispatch(isLoadingAC(isLoading))
         }
     }
