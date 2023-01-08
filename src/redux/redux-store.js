@@ -12,5 +12,6 @@ let reducers = combineReducers({
 });
 
 let srote = createStore(reducers);
+window.store = srote;
 
 export default srote;
