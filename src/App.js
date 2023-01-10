@@ -10,18 +10,22 @@ import './App.css';
 
 
 
+
 const App = (props) => {
 
     return (
         <div className='app-wrapper'>
-            <Header/>
+            <HeaderContainer/>
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Routes>
                     <Route path='/dialogs'
                            element={<DialogsContainer/>}/>
                     <Route path='/profile'
-                           element={<ProfileContainer/>}/>
+                           element={<ProfileContainer/>}>
+                        <Route path=':profileId'
+                               element={<ProfileContainer/>}/>
+                        </Route>
                     <Route path='/users'
                            element={<UsersContainer/>}/>
 
