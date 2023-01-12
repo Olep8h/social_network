@@ -10,7 +10,7 @@ let reducers = combineReducers({
     dialogsPage: dialogsReducer,
     sidebar: sidebarReducer,
     usersPage: users_reducer,
-    authentication: authenticationReducer,
+    auth: authenticationReducer,
 });
 
 let srote = createStore(reducers);
