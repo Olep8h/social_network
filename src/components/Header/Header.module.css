@@ -5,3 +5,22 @@
 .header img {
     width: 35px;
 }
+.header h1 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.login {
+    grid-area: b;
+    text-align: right;
+    margin-top: -10px;
+}
+.login a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-right: 10px;
+
+}
