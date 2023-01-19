@@ -28,16 +28,20 @@ export const usersAPI = {
                 .then(response => {
                     return response.data;
                 })
-        )
-    },
-    // getProfileInfo(profileId, setUserProfile) {
-    //     instance.get(`profile/` + profileId)
-    //         .then(response => {
-    //             return response.data;
-    //             setUserProfile(response.data);
-    //         })
-    // }
+        )},
+    getProfileInfo(profileId) {
+        return (
+            instance.get( `profile/`+ profileId)
+        )}
 }
+
+export const loginAPI = {
+    me() {
+        return (
+            instance.get(`auth/me`)
+        )}
+}
+
 
 
 
