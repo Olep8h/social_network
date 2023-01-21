@@ -2,6 +2,7 @@ import React from "react";
 import classes from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import {Navigate} from "react-router-dom";
 
 
 const Dialogs = (props) => {
@@ -12,7 +13,7 @@ const Dialogs = (props) => {
         .map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>);
 
     let massagesElements = state.messagesData
-        .map(massage => <Message message={massage.message}/> );
+        .map(massage => <Message message={massage.message}/>);
 
     let newMessageBody = state.newMessageBody;
 
@@ -25,8 +26,7 @@ const Dialogs = (props) => {
         props.updateNewMessageBody(body);
     }
 
-
-
+    if (!props.isAuth) return <Navigate to={'/login'}/>
 
     return (
         <div className={classes.dialogs}>
@@ -34,13 +34,15 @@ const Dialogs = (props) => {
                 {dialogsElements}
             </div>
             <div className={classes.messages}>
-               <div>{massagesElements}</div>
+                <div>{massagesElements}</div>
                 <div>
                     <div><textarea className={classes.text_message}
                                    value={newMessageBody}
                                    onChange={onNewMessageChange}
                                    placeholder='Enter your message..'></textarea></div>
-                    <div><button className={classes.button_sendMessage} onClick={onSendMessageClick}>Send</button></div>
+                    <div>
+                        <button className={classes.button_sendMessage} onClick={onSendMessageClick}>Send</button>
+                    </div>
                 </div>
             </div>
         </div>
