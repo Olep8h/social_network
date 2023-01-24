@@ -1,8 +1,8 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {retrieveUserProfile} from "../../redux/profile_reducer";
-import {Navigate, useParams} from "react-router-dom";
+import {retrieveStatus, retrieveUserProfile, updateStatus} from "../../redux/profile_reducer";
+import {useParams} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
@@ -15,21 +15,28 @@ function ProfileContainer(props) {
 
     React.useEffect(() => {
         props.retrieveUserProfile(profileId);
+        setTimeout(() => {
+            props.retrieveStatus(profileId);
+        } , 1000);
     }, [profileId]);
 
 
     return (
-        <Profile {...props} profile={props.profile}/>
+        <Profile {...props} profile={props.profile}
+                 status={props.status}
+                 updateStatus={props.updateStatus}
+
+        />
     )
 }
 
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
-    isAuth: state.auth.isAuth
+    status: state.profilePage.status,
 })
 
 
 export default compose(
-    withAuthRedirect,
-    connect
-    (mapStateToProps, {retrieveUserProfile}))(ProfileContainer);
+    connect(mapStateToProps, {retrieveUserProfile, retrieveStatus, updateStatus}),
+    withAuthRedirect)
+    (ProfileContainer);
