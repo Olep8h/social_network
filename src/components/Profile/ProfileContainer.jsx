@@ -10,7 +10,7 @@ import {compose} from "redux";
 function ProfileContainer(props) {
     let {profileId} = useParams();
     if (!profileId) {
-        profileId = 2;
+        profileId = 27439;
     }
 
     React.useEffect(() => {
