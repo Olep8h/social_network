@@ -42,3 +42,43 @@ const AddNewPostForm = (props) => {
 const AddNewPostReduxForm = reduxForm({form: "ProfileAddNewPostForm"})(AddNewPostForm);
 
 export default MyPosts;
+
+// import React from "react";
+// import classes from './MyPosts.module.css';
+// import Post from "./Post/Post";
+// import { Formik, Field, Form } from "formik";
+//
+// const MyPosts = (props) => {
+//     let postsElements = props.postsData
+//         .map((post) => <Post message={post.message} likesCount={post.likesCount} />);
+//
+//     return (
+//         <div className={classes.postsBlock}>
+//             <h2 className={classes.titleMyPhotos}>My photos</h2>
+//             <Formik
+//                 initialValues={{ newPostText: '' }}
+//                 onSubmit={values => {
+//                     props.addPost(values.newPostText);
+//                 }}
+//             >
+//                 {({ handleSubmit }) => (
+//                     <Form onSubmit={handleSubmit}>
+//                         <div>
+//                             <Field name="newPostText" component="textarea" />
+//                         </div>
+//                         <div>
+//                             <button className={classes.addPostButton} type="submit">
+//                                 Add Post
+//                             </button>
+//                         </div>
+//                     </Form>
+//                 )}
+//             </Formik>
+//             <div className={classes.posts}>
+//                 {postsElements}
+//             </div>
+//         </div>
+//     );
+// };
+//
+// export default MyPosts;
