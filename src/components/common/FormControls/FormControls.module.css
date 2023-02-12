@@ -1,0 +1,10 @@
+.formControl {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.formControl.error input,
+.formControl.error textarea {
+    border: solid 2px red;
+}
