@@ -15,8 +15,7 @@ const authenticationReducer = (state = initialState, action) => {
         case SET_USER_DATA:
             return {
                 ...state,
-                ...action.data,
-                isAuth: true,
+                ...action.payload,
                 isLoading: false,
             };
         case TOGGLE_IS_LOADING:
@@ -29,7 +28,8 @@ const authenticationReducer = (state = initialState, action) => {
     }
 }
 
-export const setUserData = (userId, email, login) => ({type: SET_USER_DATA, data: {userId, email, login}});
+export const setUserData = (userId, email, login, isAuth) =>
+    ({type: SET_USER_DATA, payload: {userId, email, login, isAuth}});
 
 export const toggleIsLoading = (isLoading) => ({type: TOGGLE_IS_LOADING, isLoading});
 
@@ -39,9 +39,27 @@ export const getAuthUserData = () => (dispatch) => {
         .then(response => {
             if (response.data.resultCode === 0) {
                 let {id, email, login} = response.data.data;
-                dispatch(setUserData(id, email, login));
+                dispatch(setUserData(id, email, login, true));
             }
             dispatch(toggleIsLoading(false));
+        });
+}
+
+export const login = (email, password, rememberMe) => (dispatch) => {
+    loginAPI.login(email, password, rememberMe)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(getAuthUserData());
+            }
+        });
+}
+
+export const logout = () => (dispatch) => {
+    loginAPI.logout()
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(setUserData(null, null, null, false));
+            }
         });
 }
 
