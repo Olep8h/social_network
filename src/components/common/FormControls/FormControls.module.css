@@ -8,3 +8,11 @@
 .formControl.error textarea {
     border: solid 2px red;
 }
+
+.form_summary_error {
+    color: red;
+    font-size: 12px;
+    margin: 5px 0;
+    padding: 5px;
+
+}
