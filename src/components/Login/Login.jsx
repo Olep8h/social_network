@@ -41,6 +41,7 @@ import {Navigate} from "react-router-dom";
 import {connect} from "react-redux";
 import {login} from "../../redux/authentication_reducer";
 import classes from "./Login.module.css";
+import style from "../common/FormControls/FormControls.module.css";
 
 
 const LoginForm = (props) => {
@@ -62,7 +63,10 @@ const LoginForm = (props) => {
                 <div className={classes.remember_me}>
                     <Field type={"checkbox"} name={"rememberMe"} component={Input}/> remember me
                 </div>
-                <div>
+                <div className={style.form_summary_error}>
+                    {props.error}
+                </div>
+                  <div className={classes.login_button}>
                     <button className={classes.login_button}>Login</button>
                 </div>
             </form>
