@@ -12,9 +12,13 @@ const Header = (props) => {
         {/* https://w7.pngwing.com/pngs/96/218/png-transparent-social-media-marketing-digital-marketing-person-information-support-team-logo-social-media-marketing-social-media.png*/}
         {/*https://c0.klipartz.com/pngpicture/358/320/gratis-png-testimonios-informaticos-iconos-cliente-prestashop-icono-mensaje-s-thumbnail.png*/}
         <div className={classes.login}>
-            {props.isAuth ? props.login : <NavLink
-                to={'/login'}
-                style={{textDecoration: 'none'}}>Login</NavLink>}
+            {props.isAuth ?
+                <div>
+                    {props.login} <button className={classes.logout_button} onClick={props.logout}>Log out</button>
+                </div>
+                : <NavLink
+                    to={'/login'}
+                    style={{textDecoration: 'none'}}>Login</NavLink>}
         </div>
     </header>
 }
