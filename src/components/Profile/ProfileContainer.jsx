@@ -10,7 +10,7 @@ import {compose} from "redux";
 function ProfileContainer(props) {
     let {profileId} = useParams();
     if (!profileId) {
-        profileId = 27439;
+        profileId = props.authorizedUserId;
     }
 
     React.useEffect(() => {
@@ -33,6 +33,8 @@ function ProfileContainer(props) {
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
+    isAuth: state.auth.isAuth,
+    authorizedUserId: state.auth.userId,
 })
 
 
