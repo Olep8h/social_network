@@ -24,3 +24,16 @@
     margin-right: 10px;
 
 }
+
+.logout_button {
+    background-color: #1178a1;
+    border: none;
+    color: white;
+    padding: 1px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 4px 2px;
+    cursor: pointer;
+}
