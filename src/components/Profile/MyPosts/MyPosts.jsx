@@ -5,9 +5,26 @@ import {Field, reduxForm} from "redux-form";
 import {maxlengthCreator, validateRequiredField} from "../../../utilities/validators/validators";
 import {Textarea} from "../../common/FormControls/FormControls";
 
+const AddNewPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field name="newPostText"
+                       placeholder={"Enter your post.."}
+                       validate={[validateRequiredField, maxlengthCreator(30)]}
+                       component={Textarea}/>
+            </div>
+            <div>
+                <button  className={classes.addPostButton}>Add Post</button>
+            </div>
+        </form>
+    )
+}
 
+const AddNewPostReduxForm = reduxForm({form: "ProfileAddNewPostForm"})(AddNewPostForm);
 
-const MyPosts = (props) => {
+const MyPosts = React.memo ((props) => {
+
     let postsElements = props.postsData
         .map((post) => <Post message={post.message} likesCount={post.likesCount}/>)
 
@@ -26,25 +43,7 @@ const MyPosts = (props) => {
             </div>
         </div>
     )
-}
-
-const AddNewPostForm = (props) => {
-    return (
-        <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field name="newPostText"
-                       placeholder={"Enter your post.."}
-                       validate={[validateRequiredField, maxlengthCreator(30)]}
-                       component={Textarea}/>
-            </div>
-            <div>
-                <button  className={classes.addPostButton}>Add Post</button>
-            </div>
-        </form>
-    )
-}
-
-const AddNewPostReduxForm = reduxForm({form: "ProfileAddNewPostForm"})(AddNewPostForm);
+})
 
 export default MyPosts;
 
