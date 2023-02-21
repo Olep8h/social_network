@@ -1,0 +1,52 @@
+.login_button {
+    background-color: #1178a1;
+    border: none;
+    color: white;
+    padding: 1px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 2px 2px;
+    cursor: pointer;
+}
+
+.login_caption {
+    color: black;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+    line-height: 17px;
+    font-size: 16px;
+    padding: 6px;
+    margin: 13px 0;
+}
+
+.remember_me {
+    color: black;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+    line-height: 17px;
+    font-size: 13px;
+    padding: 5px;
+    margin: 2px 0;
+}
+
+.password {
+    color: black;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+    line-height: 17px;
+    font-size: 13px;
+    padding: 5px;
+    margin: -15px 0;
+}
+
+.email {
+    color: black;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+    line-height: 17px;
+    font-size: 13px;
+    padding: 5px;
+    margin: 2px 0;
+}
