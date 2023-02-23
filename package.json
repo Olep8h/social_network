@@ -44,5 +44,8 @@
   },
   "resolutions": {
     "react-redux": "^8.0.5"
+  },
+  "devDependencies": {
+    "react-test-renderer": "^18.2.0"
   }
 }
