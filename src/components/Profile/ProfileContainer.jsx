@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {retrieveStatus, retrieveUserProfile, updateStatus} from "../../redux/profile_reducer";
+import {retrieveStatus, retrieveUserProfile, savePhoto, updateStatus} from "../../redux/profile_reducer";
 import {useParams} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
@@ -17,14 +17,16 @@ function ProfileContainer(props) {
         props.retrieveUserProfile(profileId);
         setTimeout(() => {
             props.retrieveStatus(profileId);
-        } , 1000);
+        }, 1000);
     }, [profileId]);
 
 
     return (
         <Profile {...props} profile={props.profile}
+                 isOwner={!useParams().profileId}
                  status={props.status}
                  updateStatus={props.updateStatus}
+                 savePhoto={props.savePhoto}
 
         />
     )
@@ -39,6 +41,6 @@ let mapStateToProps = (state) => ({
 
 
 export default compose(
-    connect(mapStateToProps, {retrieveUserProfile, retrieveStatus, updateStatus}),
+    connect(mapStateToProps, {retrieveUserProfile, retrieveStatus, updateStatus, savePhoto}),
     withAuthRedirect)
-    (ProfileContainer);
+(ProfileContainer);
