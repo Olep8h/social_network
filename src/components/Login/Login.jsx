@@ -66,8 +66,14 @@ const LoginForm = (props) => {
                 <div className={style.form_summary_error}>
                     {props.error}
                 </div>
-                  <div className={classes.login_button}>
-                    <button className={classes.login_button}>Login</button>
+                  <div>
+                    <button className={classes.login_button}>
+                        Login
+                        <div className={classes.arrow_wrapper}>
+                            <div className={classes.arrow}></div>
+
+                        </div>
+                    </button>
                 </div>
             </form>
     )
