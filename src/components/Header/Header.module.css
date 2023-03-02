@@ -1,10 +1,12 @@
 .header {
     grid-area: a;
-    background-color: #1178a1 ;
+    background-color: #1178a1;
 }
+
 .header img {
     width: 35px;
 }
+
 .header h1 {
     color: #fff;
     font-size: 1.5rem;
@@ -12,28 +14,67 @@
     display: inline-block;
     vertical-align: middle;
 }
-.login {
+
+.login_button {
     grid-area: b;
     text-align: right;
     margin-top: -10px;
+
 }
-.login a {
-    color: white;
+
+.login_button a {
+    color: #D1F2EB;
     text-decoration: none;
     font-size: 1.2rem;
     margin-right: 10px;
-
 }
 
 .logout_button {
-    background-color: #1178a1;
-    border: none;
-    color: white;
-    padding: 1px 8px;
-    text-align: center;
-    text-decoration: none;
+    --color: #560bad;
+    font-family: inherit;
     display: inline-block;
-    font-size: 1rem;
-    margin: 4px 2px;
-    cursor: pointer;
+    width: 6em;
+    height: 2.6em;
+    line-height: 2.2em;
+    margin: -20px 6px 0;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color);
+    transition: color .5s;
+    z-index: 1;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--color);
+    top: -3px;
+}
+
+.logout_button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: #D1F2EB;
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.logout_button:hover {
+    color: #273746;
+}
+
+.logout_button:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+}
+
+.logout_button:hover:before {
+    top: -30px;
+    left: -30px;
+}
+
+.logout_button:active:before {
+    background: #D1F2EB;
+    transition: background 0s;
 }
