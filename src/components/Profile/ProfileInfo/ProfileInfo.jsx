@@ -1,21 +1,35 @@
 import React from "react";
-import classes from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileDescription from "./ProfileDescription";
+import ProfileDataForm from "./ProfileDataForm";
+import userIcon from "../../../assets/images/user-image.png";
+import ProfileData from "./ProfileData";
+import classes from './ProfileInfo.module.css'
 
 
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
+
+    const [editMode, setEditMode] = React.useState(false);
 
 
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+    if (!profile) {
         return <Preloader/>
     }
 
     const onMainPhotoSelected = (e) => {
         if (e.target.files.length) {
-            props.savePhoto(e.target.files[0])
+            savePhoto(e.target.files[0])
         }
     }
+
+    const onSubmit = (formData) => {
+        saveProfile(formData).then(
+            () => {
+                setEditMode(false);
+            }
+        )
+    }
+    // если профиль сохранен, то выходим из режима редактирования
 
 
     return (
@@ -25,16 +39,30 @@ const ProfileInfo = (props) => {
                     src='https://static.trip101.com/paragraph_media/pictures/002/412/765/large/1200px-Cmglee_Cambridge_Trinity_College_Great_Court.jpg?1617627235'/>
             </div>
             <div className={classes.description_block}>
-                <img src={props.profile.photos.large} className={classes.photo_large}/>
+                <img src={profile.photos.large || userIcon } className={classes.photo_large}/>
+
                 <div>
                     <div>
-                        {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
+                        {/*{isOwner && <input className={classes.input_choose_new_photo} type={"file"} onChange={onMainPhotoSelected}/>}*/}
+                        {isOwner && (
+                            <div>
+                                <input className={classes.input_choose_new_photo} type="file" id="photoInput" onChange={onMainPhotoSelected}/>
+                                <label className={classes.button_choose_new_photo} htmlFor="photoInput">Add Profile Picture</label>
+                            </div>
+                        )}
                     </div>
-                    <ProfileDescription status={props.status} updateStatus={props.updateStatus}/>
+                    {editMode
+                        ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
+                        : <ProfileData activeEditMode={() => {
+                            setEditMode(true)
+                        }} profile={profile} isOwner={isOwner}/>}
+                    <ProfileDescription status={status} updateStatus={updateStatus} isOwner={isOwner}/>
                 </div>
             </div>
         </div>
     )
 }
+
+
 
 export default ProfileInfo;
