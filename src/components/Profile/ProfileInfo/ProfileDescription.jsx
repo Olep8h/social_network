@@ -9,8 +9,9 @@ const ProfileDescription = (props) => {
     }, [props.status]);
 
     const activateEditMode = () => {
-        setEditMode(true);
+        props.isOwner && setEditMode(true);
     }
+    // возможноть редактирования статуса только для владельца профиля
 
     const deactivateEditMode = () => {
         setEditMode(false);
@@ -25,7 +26,7 @@ const ProfileDescription = (props) => {
         <div>
             {!editMode &&
                 <div>
-                    <span onDoubleClick={activateEditMode}>{props.status || "No status.."}</span>
+                    <b>Status</b>: <span onDoubleClick={activateEditMode}>{props.status || "No status.."}</span>
                 </div>
             }
             {editMode &&
