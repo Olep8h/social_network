@@ -15,7 +15,13 @@ const AddNewPostForm = (props) => {
                        component={Textarea}/>
             </div>
             <div>
-                <button  className={classes.addPostButton}>Add Post</button>
+
+                <button className={classes.bt_send}>
+                    <span className={classes.msg}></span>
+                    SEND
+                </button>
+
+                {/*<button  className={classes.addPostButton}>Add Post</button>*/}
             </div>
         </form>
     )
