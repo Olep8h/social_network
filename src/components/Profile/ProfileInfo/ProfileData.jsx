@@ -1,5 +1,7 @@
 import React from "react"
-import classes from './ProfileData.module.css'
+// import classes from './ProfileData.module.css'
+
+const classes = {}
 
 const ProfileData = ({profile, isOwner, activeEditMode}) => {
     return <div className={classes.profile_form}>
