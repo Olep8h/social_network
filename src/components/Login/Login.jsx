@@ -46,36 +46,40 @@ import style from "../common/FormControls/FormControls.module.css";
 
 const LoginForm = (props) => {
     return (
-            <form onSubmit={props.handleSubmit}>
-                <div className={classes.email}>
-                    <Field placeholder={"Email"}
-                           name={"email"}
-                           validate={[validateRequiredField]}
-                           component={Input}/>
-                </div>
-                <div className={classes.password}>
-                    <Field placeholder={"Password"}
-                           name={"password"}
-                           type={"password"}
-                           validate={[validateRequiredField]}
-                           component={Input}/>
-                </div>
-                <div className={classes.remember_me}>
-                    <Field type={"checkbox"} name={"rememberMe"} component={Input}/> remember me
-                </div>
-                <div className={style.form_summary_error}>
-                    {props.error}
-                </div>
-                  <div>
-                    <button className={classes.login_button}>
-                        Login
-                        <div className={classes.arrow_wrapper}>
-                            <div className={classes.arrow}></div>
-
-                        </div>
-                    </button>
-                </div>
-            </form>
+        <form onSubmit={props.handleSubmit}>
+            <div className={classes.email}>
+                <Field placeholder={"Email"}
+                       name={"email"}
+                       validate={[validateRequiredField]}
+                       component={Input}/>
+            </div>
+            <div className={classes.password}>
+                <Field placeholder={"Password"}
+                       name={"password"}
+                       type={"password"}
+                       validate={[validateRequiredField]}
+                       component={Input}/>
+            </div>
+            <div className={classes.remember_me}>
+                <Field type={"checkbox"} name={"rememberMe"} component={Input}/> remember me
+            </div>
+            {props.captchaUrl && <img src={props.captchaUrl}/>}
+            {props.captchaUrl && <Field placeholder={"Symbols from image"}
+                                        name={"captcha"}
+                                        validate={[validateRequiredField]}
+                                        component={Input}/>}
+            <div className={style.form_summary_error}>
+                {props.error}
+            </div>
+            <div>
+                <button className={classes.login_button}>
+                    Login
+                    <div className={classes.arrow_wrapper}>
+                        <div className={classes.arrow}></div>
+                    </div>
+                </button>
+            </div>
+        </form>
     )
 }
 
@@ -84,7 +88,7 @@ const LoginReduxForm = reduxForm({form: 'login'})(LoginForm);
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe);
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
     }
     if (props.isAuth) {
         return <Navigate to={"/profile"}/>
@@ -93,13 +97,14 @@ const Login = (props) => {
     return (
         <div>
             <h1 className={classes.login_caption}>Login</h1>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </div>
     )
 }
 
 const mapStateToProps = (state) => ({
+    captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth
 })
 
-export default connect(mapStateToProps, {login}) (Login);
+export default connect(mapStateToProps, {login})(Login);
