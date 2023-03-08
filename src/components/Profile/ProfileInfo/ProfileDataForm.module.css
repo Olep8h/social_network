@@ -1,0 +1,46 @@
+.save_button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 6px 250px;
+    position: relative;
+    top: 40px;
+}
+
+.full_name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.about_me {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.looking_for_job {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.skills {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contacts_caption {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 4px;
+    padding: 2px;
+}
+
+.contacts {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 12px 6px;
+    padding: 2px;
+}

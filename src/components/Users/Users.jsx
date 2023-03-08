@@ -64,7 +64,7 @@ let Users = ({currentPage, totalUsersCount, pageSize, onPageChanged, users, ...p
                             <div className={styles.description}>{u.status}</div>
                         </span>
                         <span>
-                            <div className={styles.location}>{"u.location"}</div>
+                            {/*<div className={styles.location}>{"u.location"}</div>*/}
                         </span>
                     </span>
                 </div>)}
